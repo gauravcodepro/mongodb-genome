@@ -7,11 +7,15 @@
 <img src = "https://github.com/gauravcodepro/mongodb-genome/blob/main/UML.png" >
   
 ```
-if you are executing from the specific directory then
+# if you are executing from the specific directory then
 import os
 os.chdir("path/dir/fasta/gff")
 mongodbprepare("samplefile.gff", prepare= "yes")
 fastaindex("samplefile.fasta", prepare= "yes")
+goannotations( to add)
+poannotations(to add)
+exonparse(to add)
+intronparse(to add)
 ```
 
 Gaurav \
