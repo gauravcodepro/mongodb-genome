@@ -7,7 +7,11 @@
 <img src = "https://github.com/gauravcodepro/mongodb-genome/blob/main/UML.png" >
   
 ```
+if you are executing from the specific directory then
+import os
+os.chdir("path/dir/fasta/gff")
 mongodbprepare("samplefile.gff", prepare= "yes")
+fastaindex("samplefile.fasta", prepare= "yes")
 ```
 
 Gaurav \
