@@ -4,7 +4,7 @@
 - since the genome annotations id will be same, implmented a list based nested iteration so that it can be inserted into ``` mongodb as .insertMany() ```
 - below is the UML for the following class.
 
-<img src = "https://github.com/gauravcodepro/mongodb-genome/blob/main/UML.png" height = 400 >
+<img src = "https://github.com/gauravcodepro/mongodb-genome/blob/main/UML.png" >
   
 ```
 mongodbprepare("samplefile.gff", prepare= "yes")
