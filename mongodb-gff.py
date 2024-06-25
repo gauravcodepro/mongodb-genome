@@ -66,3 +66,43 @@ class MongoDB:
             for i in range(len(fasta_names)):
                 mongopreparefasta[fasta_names[i]] = [{fasta_names[i]: fasta_len[i]}, {fasta_names[i]: fasta_seq[i]}]
             return mongopreparefasta
+
+    def exonparse(pathgff, mongoprepareexon):
+        if pathgff and mongoprepareexon:
+            with open(gfffile, "r") as gffread:
+                with open("gfffilemod", "w") as gffwrite:
+                    gffwrite.write("column1" + "\t" + "column2" + "\t" +"column3" + "\t" +
+                  "column4" + "\t" ''+ "column5" + "\t" + "column6" + "\t" + "column7" +
+                  "\t" + "column8" + "\t" + "column9\n")
+                    for line in gffread.readlines():
+                        gffwrite.write(line)
+                    gffwrite.close()
+            gffdataframe = pd.read_csv("gfffilemod", sep = "\t")
+            select1 = gffdataframe["column3"]
+            select2 = gffdataframe["column4"]
+            select3 = gffdataframe["column5"]
+            mongoprepareexon = {}
+            for i in range(len(select1)):
+                if select1 == "exon":
+                    mongoprepareexon[select1[i]] = [{select1[i]:select2[i]}, {select1[i]: select2[i]}]
+            retrun mongoprepareexon
+
+     def intronparse(pathgff, mongoprepareintron):
+        if pathgff and mongoprepareexon:
+            with open(gfffile, "r") as gffread:
+                with open("gfffilemod", "w") as gffwrite:
+                    gffwrite.write("column1" + "\t" + "column2" + "\t" +"column3" + "\t" +
+                  "column4" + "\t" ''+ "column5" + "\t" + "column6" + "\t" + "column7" +
+                  "\t" + "column8" + "\t" + "column9\n")
+                    for line in gffread.readlines():
+                        gffwrite.write(line)
+                    gffwrite.close()
+            gffdataframe = pd.read_csv("gfffilemod", sep = "\t")
+            select1 = gffdataframe["column3"]
+            select2 = gffdataframe["column4"]
+            select3 = gffdataframe["column5"]
+            mongoprepareintron = {}
+            for i in range(len(select1)):
+                if select1 == "exon":
+                    mongoprepareintron[select1[i]] = [{select1[i]:select2[i]}, {select1[i]: select3[i]}]
+            retrun mongoprepareintron
