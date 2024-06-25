@@ -78,9 +78,9 @@ class MongoDB:
                         gffwrite.write(line)
                     gffwrite.close()
             gffdataframe = pd.read_csv("gfffilemod", sep = "\t")
-            select1 = gffdataframe["column3"]
-            select2 = gffdataframe["column4"]
-            select3 = gffdataframe["column5"]
+            select1 = gffdataframe["column3"].to_list()
+            select2 = gffdataframe["column4"].to_list()
+            select3 = gffdataframe["column5"].to_list()
             mongoprepareexon = {}
             for i in range(len(select1)):
                 if select1 == "exon":
@@ -98,13 +98,95 @@ class MongoDB:
                         gffwrite.write(line)
                     gffwrite.close()
             gffdataframe = pd.read_csv("gfffilemod", sep = "\t")
-            select1 = gffdataframe["column3"]
-            select2 = gffdataframe["column4"]
-            select3 = gffdataframe["column5"]
+            select1 = gffdataframe["column3"].to_list()
+            select2 = gffdataframe["column4"].to_list()
+            select3 = gffdataframe["column5"].to_list()
             mongoprepareintron = {}
             for i in range(len(select1)):
                 if select1 == "exon":
                     mongoprepareintron[select1[i]] = [{select1[i]: select2[i]}, {select1[i]: select3[i]}]
             return mongoprepareintron
-    
-    
+
+    def exonseq(pathgff, pathfasta, mongoexonprepareseq):
+        if pathgff and pathfasta and mongoprepareexonseq:
+            readfasta = [i.strip() for i in open(pathfasta, "r").readlines()]
+            fastaseq = {}
+            for i in readfasta:
+                if i.startswith(">"):
+                    path = i.strip()
+                    if i not in fastaseq:
+                        fastaseq[i] = ""
+                    continue
+                fastaseq[path] += i.strip()
+            fasta_seq = list(fastaseq.values())
+            fasta_names = [i.replace(">", "")for i in (list(fastaseq.keys()))]
+            fastaparsedict = {}
+            for i in range(len(fasta_seq)):
+                fastaparsedict[fasta_seq[i]] = fasta_names[i]
+            with open(gfffile, "r") as gffread:
+                with open("gfffilemod", "w") as gffwrite:
+                    gffwrite.write("column1" + "\t" + "column2" + "\t" +"column3" + "\t" +
+                  "column4" + "\t" ''+ "column5" + "\t" + "column6" + "\t" + "column7" +
+                  "\t" + "column8" + "\t" + "column9\n")
+                    for line in gffread.readlines():
+                        gffwrite.write(line)
+                    gffwrite.close()
+            gffdataframe = pd.read_csv("gfffilemod", sep = "\t")
+            exonpresent = gffdataframe["column1"].to_list()
+            select1 = gffdataframe["column3"].to_list()
+            select2 = gffdataframe["column4"].to_list()
+            select3 = gffdataframe["column5"].to_list()
+            exonseq ={}
+            for i in range(len(select1)):
+                if select1 == "exon":
+                    exonseq["exonpresent[i]"] = [select1[i], select2[i], select3[i]]
+            exonseqprepare = {}
+            exonseqkeys = list(exonseq.keys())
+            exonseqvalues = list(exonseq.values())
+            for i in range(len(exonseqkeys)):
+                for j in range(len(fasta_seq)):
+                    if exonseqkeys[i] == fasta_names[i]:
+                        exonseqprepare[exonseqkeys[i]] == fasta_seq[i][exonseqvalues[i][0]:exonseqvalues[i][1]]
+                    return exonseqprepare
+
+    def exonseq(pathgff, pathfasta, mongointronprepareseq):
+        if pathgff and pathfasta and mongoprepareintronseq:
+            readfasta = [i.strip() for i in open(pathfasta, "r").readlines()]
+            fastaseq = {}
+            for i in readfasta:
+                if i.startswith(">"):
+                    path = i.strip()
+                    if i not in fastaseq:
+                        fastaseq[i] = ""
+                    continue
+                fastaseq[path] += i.strip()
+            fasta_seq = list(fastaseq.values())
+            fasta_names = [i.replace(">", "")for i in (list(fastaseq.keys()))]
+            fastaparsedict = {}
+            for i in range(len(fasta_seq)):
+                fastaparsedict[fasta_seq[i]] = fasta_names[i]
+            with open(gfffile, "r") as gffread:
+                with open("gfffilemod", "w") as gffwrite:
+                    gffwrite.write("column1" + "\t" + "column2" + "\t" +"column3" + "\t" +
+                  "column4" + "\t" ''+ "column5" + "\t" + "column6" + "\t" + "column7" +
+                  "\t" + "column8" + "\t" + "column9\n")
+                    for line in gffread.readlines():
+                        gffwrite.write(line)
+                    gffwrite.close()
+            gffdataframe = pd.read_csv("gfffilemod", sep = "\t")
+            intronpresent = gffdataframe["column1"].to_list()
+            select1 = gffdataframe["column3"].to_list()
+            select2 = gffdataframe["column4"].to_list()
+            select3 = gffdataframe["column5"].to_list()
+            intronseq ={}
+            for i in range(len(select1)):
+                if select1 == "exon":
+                    intronseq["exonpresent[i]"] = [select1[i], select2[i], select3[i]]
+            intronseqprepare = {}
+            intronseqkeys = list(intronseq.keys())
+            intronseqvalues = list(intronseq.values())
+            for i in range(len(intronseqkeys)):
+                for j in range(len(fasta_seq)):
+                    if intronseqkeys[i] == fasta_names[i]:
+                        intronseqprepare[exonseqkeys[i]] == fasta_seq[i][exonseqvalues[i][0]:exonseqvalues[i][1]]
+                    return exonseqprepare
