@@ -47,7 +47,7 @@ class MongoDB:
     return mongodbprepare
 
     def fastaindex(pathfasta, mongopreparefasta):
-        if pathfasts and monopreparefasta == "yes":
+        if pathfasta and monopreparefasta == "yes":
             readfasta = [i.strip() for i in open(pathfasta, "r").readlines()]
             fastaseq = {}
             for i in readfasta:
