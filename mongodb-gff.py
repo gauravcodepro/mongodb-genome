@@ -149,7 +149,7 @@ class MongoDB:
                         exonseqprepare[exonseqkeys[i]] == fasta_seq[i][exonseqvalues[i][0]:exonseqvalues[i][1]]
                     return exonseqprepare
 
-    def exonseq(pathgff, pathfasta, mongointronprepareseq):
+    def intronseq(pathgff, pathfasta, mongointronprepareseq):
         if pathgff and pathfasta and mongoprepareintronseq:
             readfasta = [i.strip() for i in open(pathfasta, "r").readlines()]
             fastaseq = {}
@@ -188,5 +188,5 @@ class MongoDB:
             for i in range(len(intronseqkeys)):
                 for j in range(len(fasta_seq)):
                     if intronseqkeys[i] == fasta_names[i]:
-                        intronseqprepare[exonseqkeys[i]] == fasta_seq[i][exonseqvalues[i][0]:exonseqvalues[i][1]]
+                        intronseqprepare[intronseqkeys[i]] == fasta_seq[i][intronseqvalues[i][0]:intronseqvalues[i][1]]
                     return exonseqprepare
