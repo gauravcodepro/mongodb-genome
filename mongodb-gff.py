@@ -88,7 +88,7 @@ class MongoDB:
             return mongoprepareexon
 
      def intronparse(pathgff, mongoprepareintron):
-        if pathgff and mongoprepareexon:
+        if pathgff and mongoprepareintron:
             with open(gfffile, "r") as gffread:
                 with open("gfffilemod", "w") as gffwrite:
                     gffwrite.write("column1" + "\t" + "column2" + "\t" +"column3" + "\t" +
@@ -106,3 +106,5 @@ class MongoDB:
                 if select1 == "exon":
                     mongoprepareintron[select1[i]] = [{select1[i]: select2[i]}, {select1[i]: select3[i]}]
             return mongoprepareintron
+    
+    
