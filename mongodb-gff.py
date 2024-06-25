@@ -84,8 +84,8 @@ class MongoDB:
             mongoprepareexon = {}
             for i in range(len(select1)):
                 if select1 == "exon":
-                    mongoprepareexon[select1[i]] = [{select1[i]:select2[i]}, {select1[i]: select2[i]}]
-            retrun mongoprepareexon
+                    mongoprepareexon[select1[i]] = [{select1[i]: select2[i]}, {select1[i]: select2[i]}]
+            return mongoprepareexon
 
      def intronparse(pathgff, mongoprepareintron):
         if pathgff and mongoprepareexon:
@@ -104,5 +104,5 @@ class MongoDB:
             mongoprepareintron = {}
             for i in range(len(select1)):
                 if select1 == "exon":
-                    mongoprepareintron[select1[i]] = [{select1[i]:select2[i]}, {select1[i]: select3[i]}]
-            retrun mongoprepareintron
+                    mongoprepareintron[select1[i]] = [{select1[i]: select2[i]}, {select1[i]: select3[i]}]
+            return mongoprepareintron
