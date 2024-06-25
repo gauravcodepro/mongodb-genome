@@ -14,8 +14,6 @@ mongodbprepare("samplefile.gff", prepare= "yes")
 fastaindex("samplefile.fasta", prepare= "yes")
 goannotations( to add)
 poannotations(to add)
-exonparse(to add)
-intronparse(to add)
 ```
 
 Gaurav \
