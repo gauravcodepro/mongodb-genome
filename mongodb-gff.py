@@ -28,15 +28,15 @@ class MongoDB:
                     gffwrite.write(line)
                 gffwrite.close()
     gffdataframe = pd.read_csv("gfffilemod", sep = "\t")
-    genomeloc = gffdataframe["column1"]
-    accession = gffdataframe["column2"]
-    typeaccession = gffdataframe["column3"]
-    start = gffdataframe["column4"]
-    end = gffdataframe["column5"]
-    length = gffdataframe["column6"]
-    posstrand = gffdataframe["column7"]
-    negstrand = gffdataframe["column8"]
-    idlocation = gffdataframe["column9"]
+    genomeloc = gffdataframe["column1"].to_list()
+    accession = gffdataframe["column2"].to_list()
+    typeaccession = gffdataframe["column3"].to_list()
+    start = gffdataframe["column4"].to_list()
+    end = gffdataframe["column5"].to_list()
+    length = gffdataframe["column6"].to_list()
+    posstrand = gffdataframe["column7"].to_list()
+    negstrand = gffdataframe["column8"].to_list()
+    idlocation = gffdataframe["column9"].to_list()
     mongodbprepare = []
     for i in range(len(genomeloc)):
         for i in range(len(genomeloc)):
