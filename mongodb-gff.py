@@ -87,7 +87,7 @@ class MongoDB:
                     mongoprepareexon[select1[i]] = [{select1[i]: select2[i]}, {select1[i]: select2[i]}]
             return mongoprepareexon
 
-     def intronparse(pathgff, mongoprepareintron):
+    def intronparse(pathgff, mongoprepareintron):
         if pathgff and mongoprepareintron:
             with open(gfffile, "r") as gffread:
                 with open("gfffilemod", "w") as gffwrite:
