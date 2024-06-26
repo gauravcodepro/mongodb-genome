@@ -12,8 +12,11 @@ import os
 os.chdir("path/dir/fasta/gff")
 mongodbprepare("samplefile.gff", prepare= "yes")
 fastaindex("samplefile.fasta", prepare= "yes")
+exonparse("samplefile.gff", prepare= "yes")
+intronparse("samplefile.gff", prepare= "yes")
+exonseq("samplefile.gff", "samplefile.fasta", mongoexonprepareseq)
+intronseq("samplefile.gff", "samplefile.fasta", mongoexonprepareseq)
 goannotations( to add)
-poannotations(to add)
 ```
 
 Gaurav \
