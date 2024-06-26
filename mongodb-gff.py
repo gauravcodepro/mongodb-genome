@@ -72,7 +72,7 @@ class MongoDB:
             with open(gfffile, "r") as gffread:
                 with open("gfffilemod", "w") as gffwrite:
                     gffwrite.write("column1" + "\t" + "column2" + "\t" +"column3" + "\t" +
-                  "column4" + "\t" ''+ "column5" + "\t" + "column6" + "\t" + "column7" +
+                  "column4" + "\t" + "column5" + "\t" + "column6" + "\t" + "column7" +
                   "\t" + "column8" + "\t" + "column9\n")
                     for line in gffread.readlines():
                         gffwrite.write(line)
@@ -92,7 +92,7 @@ class MongoDB:
             with open(gfffile, "r") as gffread:
                 with open("gfffilemod", "w") as gffwrite:
                     gffwrite.write("column1" + "\t" + "column2" + "\t" +"column3" + "\t" +
-                  "column4" + "\t" ''+ "column5" + "\t" + "column6" + "\t" + "column7" +
+                  "column4" + "\t" + "column5" + "\t" + "column6" + "\t" + "column7" +
                   "\t" + "column8" + "\t" + "column9\n")
                     for line in gffread.readlines():
                         gffwrite.write(line)
@@ -126,7 +126,7 @@ class MongoDB:
             with open(gfffile, "r") as gffread:
                 with open("gfffilemod", "w") as gffwrite:
                     gffwrite.write("column1" + "\t" + "column2" + "\t" +"column3" + "\t" +
-                  "column4" + "\t" ''+ "column5" + "\t" + "column6" + "\t" + "column7" +
+                  "column4" + "\t" + "column5" + "\t" + "column6" + "\t" + "column7" +
                   "\t" + "column8" + "\t" + "column9\n")
                     for line in gffread.readlines():
                         gffwrite.write(line)
