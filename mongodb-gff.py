@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Author Gaurav 
+# Author Gaurav
 # Universitat Potsdam
 # Date 2024-6-24
 
@@ -149,7 +149,7 @@ class MongoDB:
                         exonseqprepare[exonseqkeys[i]] == fasta_seq[i][exonseqvalues[i][0]:exonseqvalues[i][1]]
                     return exonseqprepare
 
-    def intronseq(pathgff, pathfasta, mongointronprepareseq):
+    def intronseq(pathgff, pathfasta, mongointronprepareseq) :
         if pathgff and pathfasta and mongoprepareintronseq:
             readfasta = [i.strip() for i in open(pathfasta, "r").readlines()]
             fastaseq = {}
@@ -190,3 +190,26 @@ class MongoDB:
                     if intronseqkeys[i] == fasta_names[i]:
                         intronseqprepare[intronseqkeys[i]] == fasta_seq[i][intronseqvalues[i][0]:intronseqvalues[i][1]]
                     return exonseqprepare
+
+    def goparsemongo(go_anntoations):
+        with open(go_anntoations, "r") as goannotate:
+            with open("goannotatemod.txt", "w") as gowrite:
+                for line in goannotate.readlines():
+                    if "!" not in line:
+                        gowrite.write(line)
+                    goannotatewrite.close()
+        mongoprepareontologycomb1 = []
+        mongoprepareontologycomb2 = []
+        mongoprepareontologycomb3 = []
+        mongoprepareontologycomb4 = []
+        mongoprepareontologycomb5 = []
+        with open("goannotatemod.txt", "r") as gowrite:
+            for line in gowrite.readlines():
+                if len(line) <= 3:
+                    continue
+                else:
+                    mongoprepareontologycomb1.append({line.strip().split("\t")[0]: line.strip().split("\t")[1]})
+                    mongoprepareontologycomb2.append({line.strip().split("\t")[0]: line.strip().split("\t")[2]})
+                    mongoprepareontologycomb3.append({line.strip().split("\t")[0]: line.strip().split("\t")[3]})
+                    mongoprepareontologycomb4.append({line.strip().split("\t")[1]: line.strip().split("\t")[2]})
+                    mongoprepareontologycomb5.append({line.strip().split("\t")[1]: line.strip().split("\t")[3]})
