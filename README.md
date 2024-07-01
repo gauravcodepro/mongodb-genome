@@ -16,7 +16,7 @@ exonparse("samplefile.gff", prepare= "yes")
 intronparse("samplefile.gff", prepare= "yes")
 exonseq("samplefile.gff", "samplefile.fasta", mongoexonprepareseq)
 intronseq("samplefile.gff", "samplefile.fasta", mongointronprepareseq)
-goannotations( to add)
+goparsemongo("GO_slim_sample.txt")
 ```
 
 Gaurav \
