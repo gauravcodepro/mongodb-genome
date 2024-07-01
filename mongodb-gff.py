@@ -134,7 +134,7 @@ class MongoDB:
             exonseq ={}
             for i in range(len(select1)):
                 if select1 == "exon":
-                    exonseq["exonpresent[i]"] = [select1[i], select2[i], select3[i]]
+                    exonseq[exonpresent[i]] = [select1[i], select2[i], select3[i]]
             exonseqprepare = {}
             exonseqkeys = list(exonseq.keys())
             exonseqvalues = list(exonseq.values())
@@ -176,7 +176,7 @@ class MongoDB:
             intronseq ={}
             for i in range(len(select1)):
                 if select1 == "exon":
-                    intronseq["exonpresent[i]"] = [select1[i], select2[i], select3[i]]
+                    intronseq[intronpresent[i]] = [select1[i], select2[i], select3[i]]
             intronseqprepare = {}
             intronseqkeys = list(intronseq.keys())
             intronseqvalues = list(intronseq.values())
