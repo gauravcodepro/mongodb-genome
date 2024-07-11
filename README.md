@@ -19,10 +19,5 @@ intronseq("samplefile.gff", "samplefile.fasta", mongointronprepareseq)
 goparsemongo("GO_slim_sample.txt")
 ```
 
-Gaurav \
-Academic Staff Member \
-Bioinformatics \
-Institute for Biochemistry and Biology \
-University of Potsdam \
-Potsdam,Germany
+Gaurav
 
