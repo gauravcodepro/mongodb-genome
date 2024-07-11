@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # Author Gaurav
-# Universitat Potsdam
 # Date 2024-6-24
 # a mongodb class to prepare the genome annotations for the genomedb, you can prepare any gff file for the
 # pymongodb as long as it meets the same gff pattern. since the genome annotations id will be duplicated ,
